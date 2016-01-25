@@ -54,15 +54,39 @@ export default class Presentation extends React.Component {
             </List>
           </Slide>
           <Slide>
-            <Heading fit capsem>Redux Bootcamp</Heading>
+            <Heading fit caps>Redux Bootcamp</Heading>
           </Slide>
           <Slide>
             <Heading fit caps>1. Single Source of Truth</Heading>
-            <Text>All of your state is stored within a single object tree, inside a single store</Text>
+            <Text>All state is stored within a single object tree, inside a single store</Text>
+            <CodePane
+              lang="javascript"
+              source={require("raw!../assets/single-store.example")}
+            />
           </Slide>
           <Slide>
-            <Heading fit caps>1. Single Source of Truth</Heading>
-            <Text>All of your state is stored within a single object tree, inside a single store</Text>
+            <Heading fit caps>2. State is read-only</Heading>
+            <Layout>
+              <Fill>
+                <Text>You must emit actions to mutate state</Text>
+              </Fill>
+            </Layout>
+            <Layout>
+              <Fill>
+                <CodePane
+                    lang="javascript"
+                    source={require("raw!../assets/emit-actions.example")}
+                />
+              </Fill>
+              <Fill>
+                <Appear fid="1">
+                  <CodePane
+                      lang="javascript"
+                      source={require("raw!../assets/single-store-after-emitting-actions.example")}
+                  />
+                </Appear>
+              </Fill>
+            </Layout>
           </Slide>
         </Deck>
       </Spectacle>
