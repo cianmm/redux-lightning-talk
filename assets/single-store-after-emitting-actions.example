@@ -1,6 +1,6 @@
 console.log(myStore.getState());
 
-/* prints
+// prints
 {
   visibilityFilter: 'SHOW_COMPLETED',
   todosById: {
@@ -18,4 +18,3 @@ console.log(myStore.getState());
     }
   }
 }
-*/
