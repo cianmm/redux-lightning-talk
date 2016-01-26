@@ -1,7 +1,47 @@
 import React, { Component } from "react";
-import { Heading } from "spectacle";
+import { createStore, combineReducers } from "redux";
 
-export default class Interactive extends Component {
+//
+// REDUCER LOGIC
+//
+const todos = function todos(state = {}, action) {
+  switch (action.type) {
+    case "ADD_TODO":
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ];
+    case "COMPLETE_TODO":
+      return [
+        ...state.slice(0, action.index),
+        Object.assign({}, state[action.index], { completed: true }),
+        ...state.slice(action.index + 1)
+      ];
+    default:
+      return state;
+  }
+};
+
+const visibilityFilter = function visibilityFilter(state = "SHOW_ALL", action) {
+  switch (action.type) {
+    case "SET_VISIBILITY_FILTER":
+      return action.filter;
+    default:
+      return state;
+  }
+};
+
+//
+// CREATE STORE
+//
+
+const myReducer = combineReducers({ visibilityFilter, todos });
+const myStore = createStore(myReducer);
+
+export default class Todo extends Component {
   constructor() {
     super();
     this.state = {
