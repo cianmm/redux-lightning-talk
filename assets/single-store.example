@@ -3,18 +3,18 @@ console.log(myStore.getState());
 // prints
 {
   visibilityFilter: 'SHOW_ALL',
-  todosById: {
-    1: {
+  todos: [
+    {
       text: 'Agree to talk about Redux',
       completed: true
     },
-    2: {
-      'Calm down after mild panic attack',
+    {
+      text: 'Calm down after mild panic attack',
       completed: true
     },
-    3: {
+    {
       text: 'Make 5 minute lightning talk',
       completed: false
     }
-  }
+  ]
 }

@@ -1,0 +1,3 @@
+import { createStore, combineReducers } from 'redux';
+let myReducer = combineReducers({visibilityFilter, todos});
+let myStore = createStore(myReducer);

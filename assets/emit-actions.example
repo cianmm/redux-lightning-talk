@@ -1,13 +1,13 @@
 myStore.dispatch({
   type: 'COMPLETE_TODO',
-  data: {
-    id: 3
+  payload: {
+    index: 2
   }
 });
 
 myStore.dispatch({
   type: 'SET_VISIBILITY_FILTER',
-  data: {
+  payload: {
     filter: 'SHOW_COMPLETED'
   }
 });

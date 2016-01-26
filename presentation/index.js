@@ -20,12 +20,10 @@ import {
   Text
 } from "spectacle";
 
-
 import createTheme from "spectacle/lib/themes/default";
 
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
-
 
 const theme = createTheme({
   primary: "#fe7c00"
@@ -64,7 +62,7 @@ export default class Presentation extends React.Component {
               source={require("raw!../assets/single-store.example")}
             />
           </Slide>
-          <Slide>
+          <Slide notes="Ensures that neither views nor callbacks will write directly to store. Mutations are in order, so no race conditions. Actions can be logged, stored and replayed for debugging.">
             <Heading fit caps>2. State is read-only</Heading>
             <Layout>
               <Fill>
@@ -74,19 +72,37 @@ export default class Presentation extends React.Component {
             <Layout>
               <Fill>
                 <CodePane
-                    lang="javascript"
-                    source={require("raw!../assets/emit-actions.example")}
+                  lang="javascript"
+                  source={require("raw!../assets/emit-actions.example")}
+                  margin={10}
                 />
               </Fill>
               <Fill>
                 <Appear fid="1">
                   <CodePane
-                      lang="javascript"
-                      source={require("raw!../assets/single-store-after-emitting-actions.example")}
+                    lang="javascript"
+                    source={require("raw!../assets/single-store-after-emitting-actions.example")}
+                    margin={10}
                   />
-                </Appear>
+              </Appear>
               </Fill>
             </Layout>
+          </Slide>
+          <Slide notes="Pure means they don't mutate anything - they return the next state">
+            <Heading fit caps>3. Changes are made with pure functions</Heading>
+            <Text>To specify how state is transformed by actions, write pure reducers</Text>
+            <Layout>
+              <Fill>
+                <CodePane
+                  lang="javascript"
+                  source={require("raw!../assets/pure-todo-reducer.example")}
+                />
+              </Fill>
+            </Layout>
+            <CodePane
+              lang="javascript"
+              source={require("raw!../assets/reducer-and-store.example")}
+            />
           </Slide>
         </Deck>
       </Spectacle>
